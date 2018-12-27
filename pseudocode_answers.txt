@@ -1,0 +1,57 @@
+Q1 Why do programmers use pseudocode?
+Pseudocode is used by programmers to describe what a code should do. 
+This helps them and other programmers understand the purpose of the alogrithm that is to be written.
+
+
+Q2 If you run pseudocode on your computer what would happen?
+The pseudocode is unreadable by comeputer and meant only for human comprhension. I expect a number of syntax errors to be called out by the computer
+
+Pseudocode practice:
+
+1. Create a function that takes two numbers and prints out the greater number.
+INPUT two numbers
+ADD the two numbers and store the result
+RETURN the result
+
+2. Create a function that prints out the numbers from 1 to 100.
+INIT (starting with) sum as zero and 
+{INIT the first number as one
+FOR (as long as) the number does not increase beyond 100
+ ADD the number to the sum
+ INCREMENT the number by one}
+ RETURN the sum number
+
+3. Create a function that searches for a specific entry in a phonebook.
+INPUT an array of objects(entries) with properties which include Name as a property
+INPUT the Name that one is looking for
+CREATE a new list to store potential search results
+{ INIT starting with the first array object,
+  FOR as long as the objects searched is limited to the maximum provided in the phoneboook (array) run through each object and check,
+    {IF the entry's name (object name property) is the same as the name provided in INPUT
+    If there is a match, store the entre object in the array of search results
+  IF END}
+}
+RETURN the array of search results
+	
+4. Using the pseudocode you wrote for the previous question, implement it in any computer language of your choice.
+
+var phoneList = [
+  {name: 'Arun', tel: '123'},
+  {name: 'abc', tel: '456'},
+  {name: 'def', tel: '789'} 
+];
+
+var entry = 'Arun';
+
+function searchName(phoneList, entry){
+  
+  var searchList = new Array();
+
+  for (i=0; i<phoneList.length; i++){
+    if(phoneList[i].name === entry )
+      searchList.push(phoneList[i]);
+  }
+  return searchList;
+}
+
+console.log(searchName(phoneList, entry));
