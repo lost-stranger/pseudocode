@@ -9,19 +9,28 @@ The pseudocode is unreadable by comeputer and meant only for human comprhension.
 Pseudocode practice:
 
 1. Create a function that takes two numbers and prints out the greater number.
-INPUT two numbers
-ADD the two numbers and store the result
-RETURN the result
+
+INPUT first number
+INPUT second number
+(IF first number is greater than second number
+  PRINT (console.log) first number
+IF first number is smaller than second number
+  PRINT (console.log) second number
+ELSE (if both are equal or if there is an error in the arguements)
+  PRINT (console.log) that question is invalid
+IF END)
 
 2. Create a function that prints out the numbers from 1 to 100.
+
 INIT (starting with) sum as zero and 
-{INIT the first number as one
+{INIT the first number to be added as one
 FOR (as long as) the number does not increase beyond 100
  ADD the number to the sum
  INCREMENT the number by one}
  RETURN the sum number
 
 3. Create a function that searches for a specific entry in a phonebook.
+
 INPUT an array of objects(entries) with properties which include Name as a property
 INPUT the Name that one is looking for
 CREATE a new list to store potential search results
