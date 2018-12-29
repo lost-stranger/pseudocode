@@ -1,0 +1,81 @@
+1.A line of people at an amusement park ride.
+a) Use an array input: ["Vivian", "Ava", "Josh", "Patrick", "Mike"]
+
+var q = ['Vivian', 'Ava', 'Josh', 'Patrick', 'Mike'];
+
+b) Insert a new person, "Mary" at the end of the line. In other words, you should insert Mary after Mike.
+
+var q = ['Vivian', 'Ava', 'Josh', 'Patrick', 'Mike'];
+var mary = ['Mary'];
+
+function enterAtEnd(q, mary){
+ q.push(mary);
+ return q;
+ }
+
+c)Find a person in line named "Josh." This function should return the position of 2 in the array, (recall that arrays are 0-based).
+
+var q = ['Vivian', 'Ava', 'Josh', 'Patrick', 'Mike'];
+function findJosh(q){
+  return q.indexOf('Josh');
+}
+
+d) Find a person in line named "Emily." What should your function return if it does not find the item in the array?
+
+It would return -1.
+
+var q = ['Vivian', 'Ava', 'Josh', 'Patrick', 'Mike'];
+function findEmily(q){
+  return q.indexOf('Emily');
+}
+
+e) What if Ava wants to allow a friend, "Melissa", to cut in line in front of her? How would you code this so Melissa appears before Ava?
+
+var q = ['Vivian', 'Ava', 'Josh', 'Patrick', 'Mike'];
+function addMelissa(q){
+ var avaPos = q.indexOf('Ava');
+  q.splice(avaPos, 0, 'Melissa');
+  return q;
+}
+
+f) If Patrick wants to leave the line, how would you delete him from the array?
+
+var q = ['Vivian', 'Ava', 'Josh', 'Patrick', 'Mike'];
+function remPatrick(q){
+ var posPatrick = q.indexOf('Patrick');
+  q.splice(posPatrick, 1);
+  return q;
+}
+
+2. Provide another real-world example that you can model using a data structure.
+
+An array data structure could be used to record an inventory of SKUs for example in a clothing shop:
+
+var inv = [
+{item: 'shirt', colour: 'blue', price: '$23'},
+{item: 'pants', colour: 'red', price: '$30'},
+{item: 'pants', colour: 'black', price: '$40'}
+];
+
+3. How would your data structure allow developers to access and manipulate the data?
+
+Developers could use common array functions to find price of specif items in the inventory by item type and colour.
+
+var inv = [
+{item: 'shirt', colour: 'blue', price: '$23'},
+{item: 'pants', colour: 'red', price: '$30'},
+{item: 'pants', colour: 'black', price: '$40'}
+];
+
+var type = 'pants';
+var colour = 'black';                           // we are looking for a price check on black pants
+
+function findPrice(inv, colour, type){
+  var price = inv.filter((item) => (item.colour === colour && item.item === type));
+  return(price[0].price);
+}
+
+
+
+
+
