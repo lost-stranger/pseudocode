@@ -1,0 +1,99 @@
+Questions:
+
+1. What is the main difference between a stack and a queue?
+A> Stack is a data strcture that uses the Last-In-First-Out method, where are objects inserted last are dealt with first, while Queue uses the First-In-First-Out method, 
+where are objects inserted first are dealt with first
+
+2. What are the similarities between stacks and queues?
+A> Both structure enable engineers to rank tasks, create an order of operations, and support system functions. Both data structures can be used to prioritize the same type of data.
+
+3.Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
+A> UNDO:Stack method - as using the UNDO option, the last change to the Word document is reversed.
+REDO: Stack method - Redo would work only immediately after calling Undo. Redo will call the last change made and reverse it
+Both are essentially stack methods working in opposite directions.
+
+Programming questions:
+
+1.Given a string, reverse it using a stack. For example, the string "Bloc!" should be converted to "!colB".
+
+var x = 'Bloc!';
+
+function reverseString(x){
+  var stack = [];
+  
+  for(let i =0; i<x.length; i++){
+    stack.push(x[i]);
+  }
+    
+  var reversed = '';
+    
+  while (stack.length>0) {
+    reversed += stack.pop();
+  }
+    
+  return reversed;
+}
+
+2. Implement the pop method of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure. Since the internal list is not the same as defined in the checkpoint, it may help to rewrite the pseudocode first.
+
+var x = ['s','d','a','r','t','g','l'];
+
+function popStack(x){
+  
+  for(let i =0; i<x.length; i++){
+    
+    if(i !== x.length-1){
+      x.push(x[i]);
+      x.shift(x[i]);
+    }
+    else{
+      return x.shift();      
+    }
+  }
+}
+
+console.log(popStack(x));
+
+Alternate method: 
+
+var x = ['s','d','a','r','t','g','l'];
+
+function popStack(x){
+  var temp;
+  
+  for(let i =0; i<x.length/2; i++){
+    temp = x[i];
+    x[i] = x[x.length-(1+i)];
+    x[x.length-(1+i)] = temp;
+  }
+  
+  return x.shift();
+}
+
+console.log(popStack(x));
+
+3. Implement the enqueue and dequeue methods defined in the checkpoint inside your own Queue class.
+
+class Queue {
+   constructor(queue){
+     this.items = queue;
+   }
+
+ enqueue(a){
+    this.items.push(a);
+   return this.items;
+  } 
+  
+ dequeue(){
+   this.items.splice(0,1);
+   return this.items;
+  }
+  
+}
+
+var x = new Queue (['a','b']);
+
+console.log(x.enqueue('c'));
+console.log(x.dequeue());
+
+
