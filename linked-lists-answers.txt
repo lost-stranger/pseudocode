@@ -1,0 +1,144 @@
+Questions:
+
+1. Pros and cons of Linked Lists
+
+Cons:
+
+1) Linked list does not allow random acces to elements. We must access nodes sequentially starting from the first one. So searching element is slow.
+
+2) Extra memory space for a link is required for each element of the list.
+
+Pros:
+
+1)Linked list is a dynamic data structure so it can grow and shrink at runtime by allocating and deallocating memeory. So there is no need to give initial size of linked list.
+
+2)Insertion and deletion of nodes are really easier. Unlike array here we don’t have to shift elements after insertion or deletion of an element. 
+In linked list we just have to update the address present in next pointer of a node.
+
+3) As size of linked list can increase or decrease at run time so there is no memory wastage. In case of array there is lot of memory wastage, 
+If we declare an array of size 10 and store only 6 elements in it then space of 4 elements are wasted. There is no such problem in linked list as memory is allocated only when required.
+
+Soucre: https://www.thecrazyprogrammer.com/2016/11/advantages-disadvantages-linked-list.html; https://hackernoon.com/the-little-guide-of-linked-list-in-javascript-9daf89b63b54
+
+2. Come up with a real world example of a linked list.
+
+Human thought process: When we think our mind moves from the initial thought stimuli which then directs the thinker to a related topic. On thinking on that topic, the thinker is then linked to another topic.
+Thought process: 
+Holidays (Node)
+(data:things I will do; link: main event Day) -> 
+
+Christmas (Node)
+(data: things I usually do; link: what I used to do as kid) -> 
+
+watching 'Home Alone' as a kid (Node)
+(data: Mackulay Culkin was the lead; link: what is he up to these day) -> 
+
+new ad with Maculay Culkin on Google Home (Node)
+(data: funny ad; link: Google Home seems interesting -> 
+
+Buying a Google Home  (Node)
+
+Programming Questions:
+
+1. The linked list push function should take a value, create a node, and add it to the end of a list. Below is pseudocode for a push function for a singly linked list. However, there is something wrong with it. Submit both an explanation of the bug and a functional implementation of the method.
+
+
+class LinkedList {
+  constructor(){
+  this.head= null;
+    }
+
+push(val){  
+    var node = {
+       value: val,
+       next: null
+    }
+    if(!this.head){
+      this.head = node;      
+    }
+    else{
+     var current = this.head;
+// In the pseudocode, there needs to be a way to move to the next node on the list. a while loop is added to action this
+      while(current.next){
+        current = current.next;
+      }
+      current.next = node;
+   }
+
+ }
+
+
+2. Given an unsorted singly linked list, remove all duplicates from the linked list.
+Example
+Input: a -> c -> d -> d -> a
+Output: a -> c -> d
+
+class LinkedList {
+  constructor(){
+  this.head= null;
+  this.length = 0;
+    }
+
+removeDuplicates() {
+  if (!this.head || !this.head.next) {
+     console.log('Not applicable.');
+     return;
+     }
+ 
+  var thisNode = this.head;
+
+  while (thisNode != null) {
+     var previousNode = thisNode;
+     var nextNode = thisNode.next;
+
+        while (nextNode != null) {
+           if (thisNode.value == nextNode.value) {
+              previousNode.next = nextNode.next;
+              this.length --;
+           } else {
+             previousNode = nextNode;
+             }
+             nextNode = nextNode.next;
+            }
+            thisNode = thisNode.next;
+           }
+    return this;
+    }
+ }
+
+3.Given an unsorted singly linked list, reverse it.
+Example
+Input: a -> b -> c -> d
+Output: d -> c -> b -> a
+
+class LinkedList {
+  constructor(){
+  this.head= null;
+  }
+
+reverseList() {
+  if (!this.head || !this.head.next) {
+     console.log('Not applicable.');
+     return;
+     }
+ 
+  var thisNode = this.head;
+  var nextNode;
+  var prevNode = null;
+ 
+  while (thisNode) {
+    nextNode = thisNode.next;
+    thisNode.next = prevNode;
+    prevNode = thisNode;
+    thisNode = nextNode;
+    }
+ 
+ this.head = previousNode;
+    }
+
+
+
+
+
+
+
