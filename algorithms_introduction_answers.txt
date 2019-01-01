@@ -1,0 +1,64 @@
+Questions:
+
+1. Using proper pseudo-code, describe the following primitive algorithms:
+
+Making coffee:
+
+PICK coffee beans;
+PLACE in coffee machine;
+FILL coffee maker with two cups of water;
+PLACE cofee mug under cofee machine to collect coffee;
+START cofee machine;
+IF cofee mug is full OR cofee brewing is complete,
+ REMOVE mug;
+ POUR two tea-spoons of milk;
+ RETURN mug;
+
+Washing dishes:
+
+PLACE dirty utensils in sink;
+FILL sink with hot water;
+ADD dish soap to hot water;
+WHILE there are dirty utensils in the sink,
+ PICK each utensil and scrub with wash-cloth,
+ RINSE utensil in running water,
+ PLACE utensil in dish rack to dry;
+DRAIN sink water
+
+Washing clothes:
+
+GRAB laundry from laundry basket
+WHILE there are clothes in the basket,
+ SEPARATE white clothes,
+ PUT clothes in bag one,
+ PUT other clothes in a separate bag (two);
+PUT clothes from bag one in washing machine one;
+PUT clothes from bag two in washing maching two;
+IF washing machine wash one or two is compelete THEN
+ REMOVE clothes from washing machines;
+ PUT clothes in dryer;
+IF dryer is compelete THEN
+ REMOVE clothes from washing machines;
+
+2. As with the knot algorithm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation. 
+Name three companies who created an algorithm that made them successful, e.g., Google's search algorithm. It doesn't need to be a tech example (such as a recipe or manufacturing a product).
+Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
+
+a. Amazon's recommendation algorithm: Amazon's ability to predict the shopper's buying behavious and next most likely item that the shopper will purchase. 
+Apparently 35% of purchases are driven through the recommendation engine's suggestions such as 'item's usually bought togther'.
+
+b. Uber's pricing algorithm: While the convenience of hiring a cab via phone is one of the main drivers behind Ubder's success, it's pricing model is what has made uber seem reasonable 
+compared to cabs and has made its use ubiquitous. The algorithm balances supply and demand to generate a value for the uber ride, which the user can assess and make a decision on before 
+taking an uber.
+
+c. Netflix's recommendation algorithm: More that 80% of shows and movies watched by Netflix's subscriber based are driven by the recommendation provided by the company's algorithm. 
+Netflix is able to study user behaviour to create highly specific genres and recommend them to users.   
+
+3. Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
+
+Efficiency relates to arriving at desired result through optimal use of resources at hand. The main resources that algorithms use would be memory space and time required to run.
+So an efficient algorithm would be one that requires the least memory space, takes the leat amount of time to execute while still delivering the desired outcome.
+
+
+
+
