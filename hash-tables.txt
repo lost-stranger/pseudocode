@@ -85,7 +85,7 @@ console.log(invSys.get('rice'));
 //8.Build a system that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store the necessary data.//
 
 var newsSys = new hashTable();
-newsSys.set('Globe & Mail, 01/01/2019', ['Globe & Mail - 2018 - all publications']);
+newsSys.set('Globe & Mail, 01/01/2019', ['Globe & Mail - 01/01/2018 - publicationfile']);
 console.log(newsSys.get('Globe & Mail, 01/01/2019'));
 
 
