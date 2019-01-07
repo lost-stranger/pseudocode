@@ -1,0 +1,88 @@
+Questions
+
+1. What is a real-life scenario that uses linear search?
+
+A> Searching for a specific bottle of wine at a wine store. I go through each rack, going through each bottle label, until I find the one that I am looking for until I get it.
+
+2. What is a real-life scenario that uses binary search?
+
+A> when working on a large excel sheet to find a find a certain row, I would use the the mouse to click on slider to move the page to middle of the sheet. If the row I am looking for is
+beyond the middle row, I would then click on the mouse to move the cursor to the middle of the bottom half of the page. I would do this until I find the row of data that I am looking for.
+
+3. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using linear search?
+
+A> It would take 7 iterations to find the value G.
+
+4.Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using binary search?
+
+A> It would take 2 iterations to find the value G.
+
+5. Given an unsorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+A> Since the items are unsorted, we would have to check each item to find the item that we are searching for; hence, I would use linear search.
+
+6. Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+A> Since the items are sorted, I would use binary search as each iteration would would cut the array in half.  With a time complexity of O(log n), 
+binary search is more likely to find the answer than binary search O(n).
+
+Programming
+
+1.You and a friend have set a wager to see who can find the word "Albatross" in the dictionary the fastest. Write a program to allow you to win the bet.
+
+function binary_search(arr, letter){
+    var low = 0;
+    var middle = Math.floor(arr.length/2);
+    var high = arr.length -1;
+
+    while(high > low){
+        if(letter < arr[middle]){
+            high = middle -1;
+            middle = Math.floor((low + high)/2);
+        }else if (letter > arr[middle]){
+            low = middle +1;
+            middle = Math.floor((low + high)/2);
+        }else {
+            return middle;
+        }
+    }
+}
+
+var arr =['Aa','Ab','Albatross','Arm','d','e','f','gary','k'];
+
+var letter = 'Albatross';
+console.log(binary_search(arr, letter));
+
+2.You work at a pet store, and a child has asked you to net the only white-spotted goldfish from the fish tank. Write a program that will help you net the right fish.
+
+var petList  = [{container:'fish-tank', type:'goldfish', desc: 'spotted', colour:'black'},
+                {container:'fish-tank', type:'goldfish', desc: 'spotted', colour:'white'},
+                {container:'kennel', type:'doberman', desc: 'mix', colour:'black'},
+                {container:'kennel', type:'labrador', desc: 'spotted', colour:'golden'},
+                {container:'cat-cage', type:'tabby', desc: 'striped', colour:'brown'}];
+
+var searched  = [{container:'fish-tank', type:'goldfish', desc: 'spotted', colour:'white'}];
+
+function searchPet(petList, searched){
+  
+  for (let i = 0; i<petList.length; i++){
+    if(petList[i].container == searched[0].container &&
+       petList[i].type == searched[0].type &&
+       petList[i].desc == searched[0].desc &&
+       petList[i].colour == searched[0].colour){
+       return  i;
+    }
+  }
+ }
+
+ console.log(searchPet(petList, searched));
+
+
+
+
+
+
+
+
+
+
