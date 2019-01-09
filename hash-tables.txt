@@ -73,19 +73,21 @@ class hashTable {
 Store this information in a hash table.//
 
 var salesSystem = new hashTable();
-salesSystem.set('111-222-3333',['Aname', 'Aaddress', '111-222-3333']);
-console.log(salesSystem.get('111-222-3333'));
+salesSystem.set('3759193923',
+[{name:'Rebecca',
+address:'123 Allston St',
+phoneNumber:'3759193923'}]);
 
 //7.Build a system that allows a store owner to track their store's inventory using a hash table for storage.//
 
 var invSys = new hashTable();
-invSys.set('rice', ['20', 'A-15']);
+invSys.set('rice', [{Quantity: '20', Location: 'A-15'}]);
 console.log(invSys.get('rice'));
 
 //8.Build a system that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store the necessary data.//
-
+	
 var newsSys = new hashTable();
-newsSys.set('Globe & Mail, 01/01/2019', ['Globe & Mail - 01/01/2018 - publicationfile']);
+newsSys.set('Globe & Mail, 01/01/2019', [{name: 'Globe & Mail', date: '01/01/2018', article: 'blah'}]);
 console.log(newsSys.get('Globe & Mail, 01/01/2019'));
 
 
