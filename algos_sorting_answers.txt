@@ -1,0 +1,105 @@
+Questions
+
+1> Write pseudocode for bubble sort.
+
+Pseudocode
+
+function  bubbleSort(items) 
+ SET length as the number of Passess through the unsorted item list
+  
+ For a specific pass of i, which starts from the first pass up to the last pass - length
+  For j which is the FIRST INDEX of Items upto the LAST INDEX of items
+   IF items[j] > items[j+1] THEN
+      SET tmp to items[j]
+      SET items[j] to items[j+1]
+      SET items[j+1] to tmp 
+     END IF
+    Iterate through all j
+   END FOR
+ END FOR
+
+ RETURN items
+
+END FUNCTION
+
+function  bubbleSort(items) {
+    var length = items.length;
+    for (var i = 0; i < length; i++) { 
+        for (var j = 0; j < length; j++) { 
+            if(items[j] > items[j+1]) {
+                var tmp = items[j]; 
+                items[j] = items[j+1]; 
+                items[j+1] = tmp; 
+            }
+        }        
+    }
+  return items;
+}
+
+var items = ['s','g','w','f','g','s','a','o','b','z','t','f'];
+
+console.log(bubbleSort(items));
+
+2.Write pseudocode for quicksort.
+function quickSort(array) {
+  if (array.length <= 1) {
+    return array;
+  }
+
+  var pivot = array[0];                                              n
+  
+  var left = []; 
+  var right = [];
+
+  for (var i = 1; i < array.length; i++) {                             n
+    array[i] < pivot ? left.push(array[i]) : right.push(array[i]);     2n
+  }
+
+  return quicksort(left).concat(pivot, quicksort(right));               
+};
+
+var unsorted = ['s','g','w','f','g','s','a','o','b','z','t','f'];
+var sorted = quickSort(unsorted);
+
+console.log(sorted);
+
+function quickSort(array)
+ IF the array length is less than 1 THEN
+  RETURN array
+
+ SET an element in the array as pivot - pivot
+
+ CREATE a new empty array to store items on the left of pivot - left
+ CREATE a new empty array to store items on the right of pivot - right
+
+ FOR i which is the FIRST INDEX of array upto the LAST INDEX of array
+  IF element at i INDEX is less that the pivot THEN
+    PUSH the element at i INDEX into the LEFT array
+   ELSE PUSH the element at i INDEX into the RIGHT array
+  END IF
+ END FOR
+
+ RECURSION
+ REPEAT the process on the left and right of the pivot and join the results
+ RETURN the result
+
+3. We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. 
+
+> After looking at the pseudocode for the above sorting methods, identify why merge sort and quick sort are much more efficient than the others. 
+Walking through each algorithm with a few sample collections may help.
+
+The best case time complexity for Quick Sort is O(n log(n)) when the pivot position in the centre. The worst case is O(n^2) in a sorted array. 
+The worst case time complexity for  merge sort is O(n log(n)). While the above two sort functions grows in time complexity with the number of elements. The sorting is done by halving the 
+elements, hence the log-linear growth rate.
+
+4. All of the sorts addressed in this checkpoint are known as comparison sorts. Research bucket sort and explain how it works. What is the ideal input for bucket sort?
+
+> Bucket Sort works by distributing the elements of an array into a number of buckets. Each bucket is then sorted individually, 
+either using a different sorting algorithm, or by recursively applying the bucket sorting algorithm. Buckrt sort is best applied when the input is uniformly distributed over a range. 
+
+
+
+
+
+ 
+
