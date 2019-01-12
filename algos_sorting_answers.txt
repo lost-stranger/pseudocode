@@ -1,67 +1,48 @@
-Questions
+ Questions
 
 1> Write pseudocode for bubble sort.
 
 Pseudocode
 
 function  bubbleSort(items) 
- SET length as the number of Passess through the unsorted item list
-  
- For a specific pass of i, which starts from the first pass up to the last pass - length
-  For j which is the FIRST INDEX of Items upto the LAST INDEX of items
-   IF items[j] > items[j+1] THEN
-      SET tmp to items[j]
-      SET items[j] to items[j+1]
-      SET items[j+1] to tmp 
-     END IF
-    Iterate through all j
-   END FOR
- END FOR
-
+ 
+ SET swap to FALSE
+  FOR i start from 0 as FIRST INDEX to the LAST INDEX under the length of the collection
+   IF items[i] > items[i + 1] THEN
+         SET tmp to items[i]
+         SET items[i] to items[i + 1]
+         SET items[i + 1] to tmp
+         SET swap to true
+   END IF
+  END FOR  
+ CONTINUE UNTIL swap turns to false  
  RETURN items
+END FUNCTION  
 
-END FUNCTION
+Implementation:
 
-function  bubbleSort(items) {
-    var length = items.length;
-    for (var i = 0; i < length; i++) { 
-        for (var j = 0; j < length; j++) { 
-            if(items[j] > items[j+1]) {
-                var tmp = items[j]; 
-                items[j] = items[j+1]; 
-                items[j+1] = tmp; 
+function bubbleSort(items){
+    let len = items.length;
+    let swapped;
+
+    do {
+        swapped = false;
+        for (let i = 0; i < len; i++) {
+            if (items[i] > items[i + 1]) {
+                let tmp = items[i];
+                items[i] = items[i + 1];
+                items[i + 1] = tmp;
+                swapped = true;
             }
-        }        
-    }
-  return items;
-}
-
-var items = ['s','g','w','f','g','s','a','o','b','z','t','f'];
-
-console.log(bubbleSort(items));
-
-2.Write pseudocode for quicksort.
-function quickSort(array) {
-  if (array.length <= 1) {
-    return array;
-  }
-
-  var pivot = array[0];                                              n
-  
-  var left = []; 
-  var right = [];
-
-  for (var i = 1; i < array.length; i++) {                             n
-    array[i] < pivot ? left.push(array[i]) : right.push(array[i]);     2n
-  }
-
-  return quicksort(left).concat(pivot, quicksort(right));               
+        }
+    } while (swapped);
+    return items;
 };
 
-var unsorted = ['s','g','w','f','g','s','a','o','b','z','t','f'];
-var sorted = quickSort(unsorted);
+console.log(bubbleSort(items));
+====================================================================================
 
-console.log(sorted);
+2.Write pseudocode for quicksort.
 
 function quickSort(array)
  IF the array length is less than 1 THEN
@@ -82,6 +63,31 @@ function quickSort(array)
  RECURSION
  REPEAT the process on the left and right of the pivot and join the results
  RETURN the result
+
+Implementation:
+
+function quickSort(array) {
+  if (array.length <= 1) {
+    return array;
+  }
+
+  var pivot = array[0];                                              
+  
+  var left = []; 
+  var right = [];
+
+  for (var i = 1; i < array.length; i++) {                             
+    array[i] < pivot ? left.push(array[i]) : right.push(array[i]);     
+  }
+
+  return quicksort(left).concat(pivot, quicksort(right));               
+};
+
+var unsorted = ['s','g','w','f','g','s','a','o','b','z','t','f'];
+var sorted = quickSort(unsorted);
+
+console.log(sorted);
+=====================================================================================================
 
 3. We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. 
 
