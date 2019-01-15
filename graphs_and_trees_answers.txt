@@ -1,0 +1,106 @@
+Questions
+
+1. What is a binary tree and what makes it unique to other trees?
+
+> Binary tree is unique as data is structured as branches on either side of a node. So each node may point to a Left child and a Right child
+
+2. What is a heuristic?
+
+> With certain problems, their may be infinite number of solutions. Heuristics are assumptions/guesses made to limit the number of outcomes to be assessed to find a solution.
+
+3. What is another problem besides the shortest-path problem that requires the use of heuristics?
+
+> In LinkedIn, when a person A requires a introduction to a person C who is a 2nd level or 3rd level network, Linkedin suggests person A to request an introduction from person B 
+who may be connected to both A and C. Depending on the degree of separation between A & C, muliple level of introduction may be needed. LinkedIn probably use assumptions such as 'identify 
+B if they work in the same organization as C'.
+
+4. What is the difference between a depth-first search and a breadth-first search?
+
+> Depth first search is an algorithm for searching tree or graph data structures. It starts at the root and explore as far as possible along each branch before backtracking. It may use
+a convention such as search right most node each time. 
+Breadth-first search is an algorithm for searching tree or graph data structures. It starts at the tree root and explore the neighbor nodes first, before moving to the next level neighbors.
+
+5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+
+> An undirected, a-cyclic, unweighted graph is one where the the nodes do not following a direction of connnection (no start or end location); they do not connect back to a node that 
+they have already passed through another node (no loops), and there is no cost of traveling between nodes
+
+6. What kind of graph is a binary search tree?
+
+> A binary search tree is a directed, a-cyclic, unweighted graph
+
+Programming Questions
+
+1. Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
+
+> Starting the root, I will check whether the number is smaller or larger than the root value. If it is smaller, I will move to left child of the root and repeat the comparison; if larger,
+I will move to the right side and repeat the exercise. I will continue this until I find the value or verify that the value does not exist.
+
+function checkBinTree(num) {
+   var curr = this.root;
+
+    while (curr.value != null){
+      if (num === curr.value){
+      return true;
+      }
+      else if (num < curr.value) {
+      curr = curr.left;
+      } 
+      else {
+      curr = curr.right;
+      }  
+    }
+
+  return false;
+   
+}
+
+2. Given a Binary Search Tree and two nodes, n1 and n2, write a function that finds the distance between the two nodes.
+
+class binarySearchDist{
+	constructor(data) {
+		this.data = data;
+		this.left = null;
+		this.right = null;
+
+	searchCA(root, n1, n2) {
+		var lowestCA = root.data;
+		if (n1 === lowestCA || n2 === lowestCA) {
+			return lowestCA;
+		}
+		if (n1 < lowestCA && n2 < lowestCA) {
+			return this.searchCA(root.left, n1, n2);
+		}
+		if (n1 > lowestCA && n2 > lowestCA) {
+			return this.searchCA(root.right, n1, n2);
+		}
+		return lowestCA;
+	}
+
+	countAncestors(root, data) {
+		let thisNode = this.root;
+		let nodeCount = 0;
+		while (thisNode) {
+			if (data === thisNode.data) {
+				return nodeCount;
+			}
+                        if(data < thisNode.data) {
+                        thisNode = thisNode.left;
+                        nodeCount++;
+                        }
+                        else {
+                        thisNode = thisNode.right;
+                        nodeCount++;
+                        }
+        }
+
+        findDistBtwTwoNodes(root, n1, n2) {
+		var lowestCA = this.searchCA(root, n1, n2);
+		var distN1ToRoot = this.countAncestors(lowestCA, n1);
+		var distN2ToRoot = this.countAncestors(lowestCA, n2);
+		var distRootToAncestor = this.countAncestors(root, lowestCA);
+		var totalDist = (distN1ToRoot + distN2ToRoot) - (2 * distRootToAncestor);
+		return totalDist;
+	}
+
+}
