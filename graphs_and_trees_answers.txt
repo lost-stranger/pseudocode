@@ -78,18 +78,18 @@ class binarySearchDist{
 	}
 
 	countAncestors(root, data) {
-		let thisNode = this.root;
+		let node = this.root;
 		let nodeCount = 0;
-		while (thisNode) {
-			if (data === thisNode.data) {
+		while (node) {
+			if (data === node.data) {
 				return nodeCount;
 			}
-                        if(data < thisNode.data) {
-                        thisNode = thisNode.left;
+                        if(data < node.data) {
+                        thisNode = node.left;
                         nodeCount++;
                         }
                         else {
-                        thisNode = thisNode.right;
+                        node = node.right;
                         nodeCount++;
                         }
         }
